@@ -35,6 +35,10 @@ resource "time_sleep" "wait_30_seconds" {
   create_duration = "30s"
 }
 
+output "ec2_public_dns" {
+  value = aws_instance.ec2.public_dns
+}
+
 
 resource "aws_security_group" "ngnix-sg" {
   name   = "ngnix-sg"

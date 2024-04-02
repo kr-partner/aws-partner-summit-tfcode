@@ -1,3 +1,29 @@
+data "aws_ami" "al2" {
+  most_recent = true
+
+  owners = ["amazon"]
+  filter {
+    name   = "name"
+    values = ["*amzn2-ami-hvm*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+}
+
+resource "aws_instance" "ec2" {
+  ami           = data.aws_ami.al2.id
+  instance_type = var.ec2_type
+  key_name      = var.ec2_key
+  associate_public_ip_address = true
+  vpc_security_group_ids = [aws_security_group.sentinel-test-sg.id]
+  tags = {
+    Name = "ec2-continus-validation"
+  }
+}
+
 resource "aws_security_group" "sentinel-test-sg" {
   name   = "sentinel-test-sg"
   description = "Security group for testing terraform sentinel"

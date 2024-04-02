@@ -1,1 +1,0 @@
-# aws-ps-sentinel_s3
