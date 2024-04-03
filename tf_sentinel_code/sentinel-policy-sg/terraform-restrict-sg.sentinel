@@ -1,6 +1,5 @@
-# This policy uses the Sentinel tfplan import to validate that no security group
-# rules have the CIDR "0.0.0.0/0".  It covers both the aws_security_group and
-# the aws_security_group_rule resources.
+# 이 정책은 Sentinel tfplan import를 사용하여 Security Group 규칙에 CIDR이 "0.0.0.0/0"인 것이 없는지 확인합니다.
+# 이 리소스는 aws_security_group 및 aws_security_group_rule 리소스를 모두 다룹니다.
 
 ##### Imports #####
 

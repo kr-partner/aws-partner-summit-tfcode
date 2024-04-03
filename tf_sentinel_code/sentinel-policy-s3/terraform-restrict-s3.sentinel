@@ -1,5 +1,5 @@
-# This policy uses the Sentinel tfplan import to require that
-# all S3 buckets have ACL "private" and be encrypted by a KMS key
+# 이 정책은 Sentinel tfplan import를 사용하여 모든 S3 버킷에 
+# ACL 정책이 "private"로 설정되어 있고 KMS 키를 사용하여 암호화되도록 요구합니다.
 
 ##### Imports #####
 

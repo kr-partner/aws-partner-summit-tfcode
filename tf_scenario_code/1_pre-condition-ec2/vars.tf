@@ -11,3 +11,9 @@ variable ec2_type {
   type = string
   default = "t3.micro"
 }
+
+variable ami_id {
+  type = string
+  default = "ami-00c39f71452c08778"
+  description = ""
+}
