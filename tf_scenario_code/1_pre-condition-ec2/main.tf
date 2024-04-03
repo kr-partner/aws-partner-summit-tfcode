@@ -22,14 +22,14 @@ data "aws_ami" "al2023_arm" {
   
   filter {
     name = "image-id"
-    values = ["var.ami_id"]
+    values = var.ami_id
     # ami-0c031a79ffb01a803는 x86_64 이미지
     # ami-0c1f7b7eb05c17ca5는 arm64 이미지
   }
 }
 
 resource "aws_instance" "ec2" {
-  ami           = var.ami_id[0] # Graviton3 기본 이미지 사용
+  ami           = var.ami_id # Graviton3 기본 이미지 사용
   instance_type = var.ec2_type
   key_name      = var.ec2_key
   associate_public_ip_address = true
