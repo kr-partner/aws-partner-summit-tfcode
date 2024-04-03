@@ -29,7 +29,7 @@ data "aws_ami" "al2023_arm" {
 }
 
 resource "aws_instance" "ec2" {
-  ami           = var.ami_id # Graviton3 기본 이미지 사용
+  ami           = var.ami_id[0] # Graviton3 기본 이미지 사용
   instance_type = var.ec2_type
   key_name      = var.ec2_key
   associate_public_ip_address = true
