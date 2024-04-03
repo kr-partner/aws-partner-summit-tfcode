@@ -1,5 +1,6 @@
 # 이 정책은 Sentinel tfplan import를 사용하여 모든 S3 버킷에 
 # ACL 정책이 "private"로 설정되어 있고 KMS 키를 사용하여 암호화되도록 요구합니다.
+# 기본값은 "acl_enabled=false" 이므로 true로 변경하세요.
 
 ##### Imports #####
 
