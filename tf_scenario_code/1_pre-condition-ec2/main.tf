@@ -18,7 +18,7 @@
 data "aws_ami" "al2023_arm" {
   most_recent = true
 
-  # owners = ["amazon"]
+  owners = ["amazon"]
   
   filter {
     name = "image-id"

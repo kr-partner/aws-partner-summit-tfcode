@@ -20,7 +20,7 @@ variable ami_id {
 }
 
 variable ami_name_filter {
-  type = string
+  type = list(string)
   default = "*al2023*-arm64"
   # default = "*al2023*-x86_64"
   description = "Amazon Linux 2023 AMI ARM64 지원 AMI"
