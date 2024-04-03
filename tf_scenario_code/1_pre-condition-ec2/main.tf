@@ -21,7 +21,7 @@ data "aws_ami" "al2023_arm" {
   owners = ["amazon"]
   filter {
     name = "ImageId"
-    Values = var.ami_id
+    values = var.ami_id
     # ami-0c031a79ffb01a803는 x86_64 이미지
     # ami-0c1f7b7eb05c17ca5는 arm64 이미지
   }
