@@ -19,7 +19,7 @@ resource "aws_instance" "ec2" {
   key_name      = var.ec2_key
   associate_public_ip_address = true
   tags = {
-    Name = "ec2-precondition-test"
+    Name = "ec2-precondition-test2"
   }
   lifecycle {
     # The AMI ID must refer to an AMI that contains an operating system
