@@ -5,15 +5,22 @@ variable "region" {
 
 variable ec2_key {
   type = string
-  default = "DPT-Vault-kp-common"
+  default = "hw-key"
 }
 variable ec2_type {
   type = string
-  default = "t3.micro"
+  default = "m7g.medium"
 }
 
 variable ami_id {
   type = string
-  default = "ami-00c39f71452c08778"
-  description = ""
+  default = "ami-0c1f7b7eb05c17ca5"
+  description = "Amazon Linux 2023 AMI ARM64 지원 AMI"
+}
+
+variable ami_name_filter {
+  type = string
+  # default = "*al2023*-arm64"
+  default = "*amzn2-ami-hvm*"
+  description = "Amazon Linux 2023 AMI ARM64 지원 AMI"
 }

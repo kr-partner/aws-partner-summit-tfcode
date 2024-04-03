@@ -1,17 +1,31 @@
+data "aws_ami" "al2023_arm" {
+  most_recent = true
+
+  owners = ["amazon"]
+  filter {
+    name   = "name"
+    # values = ["*al2023*-arm64"] # ARM 아키텍처
+    # values = ["*amzn2-ami-hvm*"] # x86_64 아키텍처
+    values = [var.ami_name_filter]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+}
+
 resource "aws_instance" "ec2" {
-  ami           = var.ami_id
+  ami           = var.ami_id # Graviton3 기본 이미지 사용
   instance_type = var.ec2_type
   key_name      = var.ec2_key
   associate_public_ip_address = true
-  tags = {
-    Name = "ec2-precondition-test2"
-  }
+
   lifecycle {
-    # The AMI ID must refer to an AMI that contains an operating system
-    # for the `x86_64` architecture.
+    # AMI 이미지는 ARM 아키텍처만 사용해야 함
     precondition {
-      condition     = data.aws_ami.al2.architecture == "x86_64"
-      error_message = "The selected AMI must be for the x86_64 architecture."
+      condition     = data.aws_ami.al2023_arm.architecture == "arm64"
+      error_message = "선택된 AMI 이미지는 반드시 ARM 64 기반의 이미지어야 합니다."
     }
   }
   tags = {
