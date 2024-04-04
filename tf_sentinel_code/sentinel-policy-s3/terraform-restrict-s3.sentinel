@@ -73,7 +73,7 @@ validate_private_acl = func() {
     } else {
       # Check whether ACL is private
       if r.applied.acl is not "private" {
-        print("S3 버킷 aws_s3_bucket_acl.s3-bucket-acl을 확인하세요", "\n", "해당 버킷의 ACL이 Public Read로 활성되어 있습니다.")
+        print("", "S3 버킷 aws_s3_bucket_acl.s3-bucket-acl을 확인하세요", "\n", "해당 버킷의 ACL이 "Public Read" 로 활성되어 있습니다.")
         result["private"] = false
       }
     } // end acl computed check
