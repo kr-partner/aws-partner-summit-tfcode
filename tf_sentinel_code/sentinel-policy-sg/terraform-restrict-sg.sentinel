@@ -83,8 +83,8 @@ validate_cidr_blocks = func() {
           # after "ingress".
           ingress_cidr_blocks = "ingress." + string(ingress_count) + ".cidr_blocks.#"
           if (r.diff[ingress_cidr_blocks].computed else false) is true {
-            print("Ingress block #", ingress_count, "of security group",
-                  address, "has cidr_blocks that is computed.")
+            print("보안 그룹 aws_security_group.sentinel-test-sg 를 확인하세요", \n,
+                  "Ingress 블록에 허용되지 않는 cidr_block 0.0.0.0/0이 포함되어 있습니다.")
             # If you want computed values to cause the policy to fail,
             # uncomment the next line.
             # validated = false
@@ -96,8 +96,8 @@ validate_cidr_blocks = func() {
             if i.cidr_blocks else null is not null and
                types.type_of(i.cidr_blocks) is "list" and
                i.cidr_blocks contains "0.0.0.0/0" {
-              print("Ingress block #", ingress_count, "of security group",
-                    address, "contains disallowed cidr_block 0.0.0.0/0" )
+              print("보안 그룹 aws_security_group.sentinel-test-sg 를 확인하세요", \n,
+                  "Ingress 블록에 허용되지 않는 cidr_block 0.0.0.0/0이 포함되어 있습니다." )
               validated = false
             }
           } // end cidr_blocks.# computed check
