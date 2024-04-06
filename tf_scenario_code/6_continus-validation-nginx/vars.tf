@@ -5,7 +5,7 @@ variable "region" {
 
 variable ec2_key {
   type = string
-  default = "DPT-Vault-kp-common"
+  default = "key-pair"
 }
 variable ec2_type {
   type = string
