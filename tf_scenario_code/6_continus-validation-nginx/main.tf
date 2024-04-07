@@ -39,6 +39,15 @@ resource "aws_security_group" "ngnix-sg" {
     description = "Allow all inbound traffic"
   }
 
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "Allow all inbound traffic"
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -46,5 +55,9 @@ resource "aws_security_group" "ngnix-sg" {
     
     cidr_blocks = ["0.0.0.0/0"]
     description = "Allow all outbound traffic"
+  }
+
+  tags = {
+    Name = "6_continus-validation-nginx"
   }
 }
