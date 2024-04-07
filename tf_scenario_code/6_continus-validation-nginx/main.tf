@@ -16,9 +16,9 @@ resource "aws_instance" "ec2" {
     EOF
 }
 
-resource "time_sleep" "wait_30_seconds" {
+resource "time_sleep" "wait_15_seconds" {
   depends_on = [aws_instance.ec2]
-  create_duration = "30s"
+  create_duration = "15s"
 }
 
 output "ec2_public_dns" {
@@ -33,15 +33,6 @@ resource "aws_security_group" "ngnix-sg" {
   ingress {
     from_port   = 80
     to_port     = 80
-    protocol    = "tcp"
-    
-    cidr_blocks = ["0.0.0.0/0"]
-    description = "Allow all inbound traffic"
-  }
-
-  ingress {
-    from_port   = 22
-    to_port     = 22
     protocol    = "tcp"
     
     cidr_blocks = ["0.0.0.0/0"]
