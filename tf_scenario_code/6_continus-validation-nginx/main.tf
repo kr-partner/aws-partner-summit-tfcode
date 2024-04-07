@@ -16,10 +16,10 @@ resource "aws_instance" "ec2" {
     EOF
 }
 
-resource "time_sleep" "wait_15_seconds" {
-  depends_on = [aws_instance.ec2]
-  create_duration = "15s"
-}
+# resource "time_sleep" "wait_15_seconds" {
+#   depends_on = [aws_instance.ec2]
+#   create_duration = "15s"
+# }
 
 output "ec2_public_dns" {
   value = aws_instance.ec2.public_dns
