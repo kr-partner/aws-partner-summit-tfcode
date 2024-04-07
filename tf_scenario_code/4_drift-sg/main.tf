@@ -19,4 +19,8 @@ resource "aws_security_group" "drift-detection-sg" {
     cidr_blocks = ["0.0.0.0/0"]
     description = "Allow all outbound traffic"
   }
+
+  tags = {
+    Name = "4_drift-sg"
+  }
 }
