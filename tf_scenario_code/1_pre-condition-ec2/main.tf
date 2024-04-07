@@ -23,8 +23,8 @@ data "aws_ami" "al2023_arm" {
   filter {
     name = "image-id"
     values = var.ami_id
-    # ami-0c031a79ffb01a803는 x86_64 이미지
-    # ami-0c1f7b7eb05c17ca5는 arm64 이미지
+    # ami-0c031a79ffb01a803는 사용자가 배포하려는 x86_64 이미지
+    # ami-0c1f7b7eb05c17ca5는 보안팀이 검증하고 승인한 arm64 이미지
   }
 }
 
