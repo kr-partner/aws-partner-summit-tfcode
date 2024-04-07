@@ -1,5 +1,5 @@
 resource "aws_instance" "ec2" {
-  ami           = var.ami_id[0] # Graviton3 기본 이미지 사용
+  ami           = var.ami_id[0]
   instance_type = var.ec2_type
   # key_name      = var.ec2_key
   # associate_public_ip_address = true
@@ -13,6 +13,10 @@ resource "aws_instance" "ec2" {
 resource "aws_security_group" "sentinel-test-sg" {
   name   = "sentinel-test-sg"
   description = "Security group for testing terraform sentinel"
+
+  tags = {
+    Name = "2_sentinel-sg"
+  }
 
   ingress {
     from_port   = 22
@@ -34,9 +38,5 @@ resource "aws_security_group" "sentinel-test-sg" {
     # cidr_blocks = ["0.0.0.0/0"]
     cidr_blocks = [var.cidr_blocks]
     description = "Allow all outbound traffic"
-  }
-
-  tags = {
-    Name = "2_sentinel-sg"
   }
 }
