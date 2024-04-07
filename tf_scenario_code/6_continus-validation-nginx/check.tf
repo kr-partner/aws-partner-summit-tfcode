@@ -4,7 +4,7 @@ check "response" {
    url      = "http://${aws_instance.ec2.public_dns}"
 #  url = "https://www.terraform.io"
 
-  depends_on = [time_sleep.wait_30_seconds]
+  depends_on = [time_sleep.wait_15_seconds]
 }
 
   assert {
