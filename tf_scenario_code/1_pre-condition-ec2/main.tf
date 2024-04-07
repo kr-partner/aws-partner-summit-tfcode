@@ -38,7 +38,7 @@ resource "aws_instance" "ec2" {
     # AMI 이미지는 ARM 아키텍처만 사용해야 함
     precondition {
       condition     = data.aws_ami.al2023_arm.architecture == "arm64"
-      error_message = "AMI 이미지는 반드시 ARM 64 기반의 이미지어야 합니다. 예) ami-0c1f7b7eb05c17ca5"
+      error_message = "AMI 이미지는 반드시 보안팀이 검증한 ami-0c1f7b7eb05c17ca5 이어야 합니다"
     }
   }
   tags = {
